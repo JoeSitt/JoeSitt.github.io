@@ -43,6 +43,43 @@ function preload(){
 }
 
 
+// function saveUserTimes() {
+//     $.post("index.php",
+//     {
+//         Id: ID,
+//         Deaths: Death,
+//         Wins: Wins,
+//         Icon: icon,
+//     },
+//     function(data,status){
+//         document.getElementById("saveWarningText").innerHTML = data;
+//         $( "#saveWarningText" ).fadeIn(100);
+//         setTimeout(function(){ $( "#saveWarningText" ).fadeOut(100); }, 3000);
+//     });
+// }
+
+
+
+var objConnection = new ActiveXObject("adodb.connection");
+console.log("1");
+    var strConn = "driver={sql server};server=sql3.freesqldatabase.com;database=sql3321292;uid=sql3321292;password=buZ98FPqwl";
+    objConnection.Open(strConn);
+    var rs = new ActiveXObject("ADODB.Recordset");
+    var strQuery = "SELECT * FROM  Person.Address";
+
+
+function postit(){
+  rs.Open(strQuery, objConnection);
+  rs.MoveFirst();
+}
+    // while (!rs.EOF) {
+    //     document.write(rs.fields(0) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+    //     document.write(rs.fields(1) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+    //     document.write(rs.fields(2) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ");
+    //     document.write(rs.fields(3) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ");
+    //     document.write(rs.fields(4) + "<br/>");
+    //     rs.movenext();
+    // }
 
 var delayInMilliseconds = 1000*60*2*9999; //1 second
 
